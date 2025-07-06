@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "🧩Exo-Cortex",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -29,26 +29,24 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#FFFCF0",       // paper
+          lightgray: "#F2F0E5",   // base-50
+          gray: "#CECDC3",        // base-200
+          darkgray: "#6F6E69",    // base-600
+          dark: "#100F0F",        // black
+          secondary: "#205EA6",   // blue-600
+          tertiary: "#24837B",    // cyan-600
+          highlight: "rgba(173, 131, 1, 0.15)", // yellow-600 with transparency
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#282a36",       // black
+          lightgray: "#1C1B1A",   // base-950
+          gray: "#6F6E69",        // base-600
+          darkgray: "#CECDC3",    // base-200
+          dark: "#FFFCF0",        // paper
+          secondary: "#4385BE",   // blue-400
+          tertiary: "#3AA99F",    // cyan-400
+          highlight: "rgba(208, 162, 21, 0.15)", // yellow-400 with transparency
         },
       },
     },
