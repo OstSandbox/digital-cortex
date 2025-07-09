@@ -642,7 +642,7 @@ iframe.pdf {
   z-index: 9999;
 }
 // Исправление для мобильной версии - структура как у Рустама
-@media all and (max-width: 800px) {
+@media all and (max-width: 1024px) {
   .page > #quartz-body {
     // Создаем трехрядную сетку: header сверху, контент посередине, sidebar снизу
     grid-template-columns: 1fr !important;
