@@ -665,7 +665,10 @@ iframe.pdf {
     border-bottom: 1px solid var(--lightgray); /* Добавляем аккуратную линию-разделитель */
     box-sizing: border-box; /* Чтобы padding не ломал ширину */
   }
-
+  /* 2.1. Прячем навигацию по папкам (Explorer) в хедере */
+.page > #quartz-body .sidebar.left .explorer {
+    display: none !important;
+  }
   /* 3. Центральный блок с контентом растягиваем на весь экран */
   .page > #quartz-body .center {
     width: 100%;
