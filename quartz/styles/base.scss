@@ -641,7 +641,7 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
-// Исправление для мобильной версии - структура как у Рустама
+// Исправление для iPad и мобильных устройств - структура как у Рустама
 @media all and (max-width: 1024px) {
   .page > #quartz-body {
     // Создаем трехрядную сетку: header сверху, контент посередине, sidebar снизу
@@ -668,6 +668,8 @@ iframe.pdf {
     top: 0;
     background-color: var(--light);
     z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* Основной контент посередине на всю ширину */
@@ -675,7 +677,7 @@ iframe.pdf {
     grid-area: grid-center !important;
     max-width: 100% !important;
     min-width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
   }
 
