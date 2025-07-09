@@ -641,46 +641,75 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
-// Исправление для мобильной версии - полноэкранный контент как у Рустама
-@media all and (max-width: 768px) {
+// Исправление для мобильной версии - структура как у Рустама
+@media all and (max-width: 800px) {
   .page > #quartz-body {
-    // Принудительно делаем одну колонку на мобильных
+    // Создаем трехрядную сетку: header сверху, контент посередине, sidebar снизу
     grid-template-columns: 1fr !important;
+    grid-template-rows: auto 1fr auto !important;
     grid-template-areas: 
       "grid-header"
       "grid-center"
-      "grid-footer" !important;
-    
-    // Убираем отступы для максимального использования экрана
+      "grid-sidebar-right" !important;
     padding: 0 0.5rem;
   }
 
-  // Полностью скрываем левую боковую панель
+  /* Скрываем левую боковую панель полностью */
   .page > #quartz-body .sidebar.left {
     display: none !important;
   }
 
-  // Скрываем правую боковую панель (граф, backlinks и т.д.)
-  .page > #quartz-body .sidebar.right {
-    display: none !important;
+  /* Строка поиска и переключатель темы сверху */
+  .page > #quartz-body .page-header {
+    grid-area: grid-header !important;
+    padding: 0.5rem !important;
+    margin: 0 !important;
+    position: sticky;
+    top: 0;
+    background-color: var(--light);
+    z-index: 10;
   }
 
-  // Расширяем контентную область на всю ширину
+  /* Основной контент посередине на всю ширину */
   .page > #quartz-body .center {
+    grid-area: grid-center !important;
     max-width: 100% !important;
     min-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  // Убираем лишние отступы у статьи
+  /* Граф и backlinks снизу */
+  .page > #quartz-body .sidebar.right {
+    grid-area: grid-sidebar-right !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+    position: static !important;
+    
+    /* Делаем элементы внутри равными по ширине */
+    & > * {
+      flex: 1 !important;
+      max-height: 300px !important;
+      margin: 0 0.5rem !important;
+    }
+    
+    /* Скрываем Table of Contents на мобильных, оставляем только граф и backlinks */
+    & > .toc {
+      display: none !important;
+    }
+  }
+
+  /* Убираем лишние отступы у статьи */
   .page > #quartz-body .center > article {
     padding: 1rem 0.5rem;
   }
 
-  // Оставляем только мобильные элементы управления (поиск, переключатель темы)
-  .page-header {
-    padding: 0.5rem !important;
-    margin: 0 !important;
+  /* Убираем sticky позиционирование для footer */
+  .page > #quartz-body footer {
+    position: static !important;
   }
 }
