@@ -1,3 +1,30 @@
 @use "./base.scss";
+/* Увеличиваем отступы для всего содержимого страницы */
+body {
+  padding-left: 20px; /* Отступ слева */
+  padding-right: 20px; /* Отступ справа */
+  /* Или универсально для всех сторон */
+  padding: 20px;
+}
+
+/* Если контент находится внутри основного блока, например, с классом .page-content */
+.page-content {
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 800px; /* Ограничиваем максимальную ширину контента */
+  margin: 0 auto; /* Центрируем блок на экране */
+}
+
+/* Для мобильных устройств (медиазапросы) */
+@media (max-width: 768px) {
+  body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .page-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 
 // put your custom CSS here!
