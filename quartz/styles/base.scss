@@ -641,77 +641,63 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
-// Исправление для iPad и мобильных устройств - структура как у Рустама
+/* --- Финальные стили для iPad и мобильных устройств (до 1024px) --- */
 @media all and (max-width: 1024px) {
+  
+  /* 1. Перестраиваем всю сетку страницы */
   .page > #quartz-body {
-    // Создаем трехрядную сетку: header сверху, контент посередине, sidebar снизу
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto 1fr auto !important;
-    grid-template-areas: 
-      "grid-header"
-      "grid-center"
-      "grid-sidebar-right" !important;
-    padding: 0 0.5rem;
-  }
-
-  /* Скрываем левую боковую панель полностью */
-  .page > #quartz-body .sidebar.left {
-    display: none !important;
-  }
-
-  /* Строка поиска и переключатель темы сверху */
-  .page > #quartz-body .page-header {
-    grid-area: grid-header !important;
-    padding: 0.5rem !important;
-    margin: 0 !important;
-    position: sticky;
-    top: 0;
-    background-color: var(--light);
-    z-index: 10;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* Основной контент посередине на всю ширину */
-  .page > #quartz-body .center {
-    grid-area: grid-center !important;
-    max-width: 100% !important;
-    min-width: 100% !important;
-    margin: 0 auto !important;
+    display: block !important; /* Отключаем сложный грид, переходим к простому блочному поведению */
     padding: 0 !important;
   }
 
-  /* Граф и backlinks снизу */
-  .page > #quartz-body .sidebar.right {
-    grid-area: grid-sidebar-right !important;
-    display: flex !important;
-    flex-direction: row !important;
-    width: 100% !important;
+  /* 2. Левую панель ПРЕВРАЩАЕМ в верхний хедер */
+  .page > #quartz-body .sidebar.left {
+    position: sticky !important; /* Делаем хедер "липким" при прокрутке */
+    top: 0;
+    width: 100%;
     height: auto !important;
-    padding: 1rem 0 !important;
+    flex-direction: row !important; /* Элементы внутри (лого, поиск) выстраиваются в ряд */
+    justify-content: space-between; /* Разносим элементы по краям */
+    align-items: center;
+    padding: 0.75rem 1rem !important;
+    background-color: var(--light); /* Задаем фон, чтобы контент прокручивался под ним */
+    z-index: 100;
+    border-bottom: 1px solid var(--lightgray); /* Добавляем аккуратную линию-разделитель */
+    box-sizing: border-box; /* Чтобы padding не ломал ширину */
+  }
+
+  /* 3. Центральный блок с контентом растягиваем на весь экран */
+  .page > #quartz-body .center {
+    width: 100%;
+    max-width: 100% !important; /* Убираем ограничения по ширине */
+    padding: 1.5rem !important; /* Даем тексту "воздуха" по краям */
     margin: 0 !important;
-    position: static !important;
-    
-    /* Делаем элементы внутри равными по ширине */
+    box-sizing: border-box;
+  }
+
+  /* 4. Правую панель (граф, ссылки) отправляем вниз */
+  .page > #quartz-body .sidebar.right {
+    display: flex !important;
+    flex-direction: row;
+    width: 100%;
+    height: auto !important;
+    position: static !important; /* Убираем привязку к краю экрана */
+    padding: 1rem !important;
+    border-top: 1px solid var(--lightgray);
+    box-sizing: border-box;
+
     & > * {
-      flex: 1 !important;
-      max-height: 300px !important;
-      margin: 0 0.5rem !important;
+      flex: 1; /* Делим пространство между графом и ссылками */
+      margin: 0 0.5rem;
     }
-    
-    /* Скрываем Table of Contents на мобильных, оставляем только граф и backlinks */
+
     & > .toc {
-      display: none !important;
+      display: none !important; /* Оглавление внизу нам не нужно */
     }
   }
 
-  /* Убираем лишние отступы у статьи */
-  .page > #quartz-body .center > article {
-    padding: 1rem 0.5rem;
-  }
-
-  /* Убираем sticky позиционирование для footer */
-  .page > #quartz-body footer {
-    position: static !important;
+  /* Прячем оригинальный пустой хедер, так как мы сделали свой из левой панели */
+  .page > #quartz-body .page-header {
+    display: none !important;
   }
 }
