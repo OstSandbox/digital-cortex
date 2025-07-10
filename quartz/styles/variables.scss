@@ -56,20 +56,3 @@ $desktopGrid: (
       "grid-sidebar-left grid-center grid-sidebar-right"\
       "grid-sidebar-left grid-footer grid-sidebar-right"',
 );
-
-// === Адаптированные переменные для твоего цифрового сада ===
-
-// Основные размеры
-$pageWidth: 750px;                    // Ширина основного контента (как у Рустама)
-$sidePanelWidth: 300px;               // Немного уже боковые панели для твоих нужд
-$topSpacing: 4rem;                    // Меньший отступ сверху для компактности
-
-// Брейкпоинты
-$mobileBreakpoint: 600px;             // Граница для телефонов
-$tabletBreakpoint: 1024px;            // Граница для планшетов (твой iPad)
-$fullPageWidth: $pageWidth + 2 * $sidePanelWidth;  // 750 + 600 = 1350px
-
-// Типографика
-$boldWeight: 700;
-$semiBoldWeight: 600;
-$normalWeight: 400;
