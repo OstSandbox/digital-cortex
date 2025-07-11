@@ -641,3 +641,88 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
+/* --- Финальные стили v3 для iPad и мобильных (до 1024px) --- */
+@media all and (max-width: 1024px) {
+  
+  /* 1. Общая структура страницы */
+  .page > #quartz-body {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Верхняя панель (хедер) */
+  .page > #quartz-body .sidebar.left {
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    height: auto !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem !important;
+    background-color: var(--light);
+    z-index: 100;
+    border-bottom: 1px solid var(--lightgray);
+    box-sizing: border-box;
+    
+    /* Прячем навигацию по папкам, она здесь не нужна */
+    .explorer {
+      display: none !important;
+    }
+    
+    /* Заставляем компонент поиска растянуться и занять доступное место */
+    .search {
+      flex-grow: 1; /* Ключевое свойство для растягивания */
+      margin: 0 1rem; /* Отступы слева и справа */
+      display: flex;
+      justify-content: flex-end; /* Прижимаем саму строку поиска вправо */
+    }
+
+    /* Увеличиваем ширину самой строки поиска */
+    .search-bar {
+        width: 100%;
+        max-width: 300px; /* Можешь поменять это значение, если нужно */
+    }
+  }
+  
+  /* 3. ВОССТАНАВЛИВАЕМ заголовок заметки (название и время чтения) */
+  .page > #quartz-body .page-header {
+    display: block !important;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    margin: 0 !important;
+  }
+
+  /* 4. Центральный блок с контентом */
+  .page > #quartz-body .center {
+    width: 100%;
+    max-width: 100% !important;
+    padding: 0 !important; /* Убираем отступы у контейнера */
+    margin: 0 !important;
+    box-sizing: border-box;
+    
+    /* Задаем отступы непосредственно для самой статьи */
+    article {
+        padding: 1.5rem;
+    }
+  }
+
+  /* 5. Правая панель (граф, ссылки) внизу */
+  .page > #quartz-body .sidebar.right {
+    display: flex !important;
+    flex-direction: row;
+    width: 100%;
+    position: static !important;
+    padding: 1rem !important;
+    border-top: 1px solid var(--lightgray);
+    box-sizing: border-box;
+
+    & > * {
+      flex: 1;
+      margin: 0 0.5rem;
+    }
+
+    & > .toc {
+      display: none !important;
+    }
+  }
+}
