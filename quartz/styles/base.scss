@@ -641,7 +641,7 @@ iframe.pdf {
   transition: width 0.2s ease;
   z-index: 9999;
 }
-/* --- Финальные стили v3 для iPad и мобильных (до 1024px) --- */
+/* --- Финальные стили v4 для iPad и мобильных (до 1024px) --- */
 @media all and (max-width: 1024px) {
   
   /* 1. Общая структура страницы */
@@ -665,23 +665,23 @@ iframe.pdf {
     border-bottom: 1px solid var(--lightgray);
     box-sizing: border-box;
     
-    /* Прячем навигацию по папкам, она здесь не нужна */
+    /* Прячем навигацию по папкам в верхней панели */
     .explorer {
       display: none !important;
     }
     
     /* Заставляем компонент поиска растянуться и занять доступное место */
     .search {
-      flex-grow: 1; /* Ключевое свойство для растягивания */
-      margin: 0 1rem; /* Отступы слева и справа */
+      flex-grow: 1;
+      margin: 0 1rem;
       display: flex;
-      justify-content: flex-end; /* Прижимаем саму строку поиска вправо */
+      justify-content: flex-end;
     }
 
     /* Увеличиваем ширину самой строки поиска */
     .search-bar {
         width: 100%;
-        max-width: 300px; /* Можешь поменять это значение, если нужно */
+        max-width: 300px;
     }
   }
   
@@ -696,7 +696,7 @@ iframe.pdf {
   .page > #quartz-body .center {
     width: 100%;
     max-width: 100% !important;
-    padding: 0 !important; /* Убираем отступы у контейнера */
+    padding: 0 !important;
     margin: 0 !important;
     box-sizing: border-box;
     
@@ -706,7 +706,7 @@ iframe.pdf {
     }
   }
 
-  /* 5. Правая панель (граф, ссылки) внизу */
+  /* 5. Правая панель (граф, ссылки, навигация) внизу */
   .page > #quartz-body .sidebar.right {
     display: flex !important;
     flex-direction: row;
@@ -719,10 +719,59 @@ iframe.pdf {
     & > * {
       flex: 1;
       margin: 0 0.5rem;
+      max-height: 300px; /* Ограничиваем высоту для удобства */
+      overflow-y: auto; /* Добавляем прокрутку при необходимости */
     }
 
+    /* Скрываем оглавление на мобильных */
     & > .toc {
       display: none !important;
+    }
+  }
+
+  /* 6. ВОЗВРАЩАЕМ навигацию по заметкам в нижнюю панель */
+  .page > #quartz-body .sidebar.right .explorer {
+    display: block !important; /* Показываем explorer в нижней панели */
+    
+    /* Стилизуем заголовок навигации */
+    .explorer-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--lightgray);
+    }
+    
+    /* Стилизуем список заметок */
+    .explorer-ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.25rem;
+        
+        a {
+          display: block;
+          padding: 0.25rem 0;
+          font-size: 0.85rem;
+          color: var(--darkgray);
+          text-decoration: none;
+          border-radius: 3px;
+          transition: background-color 0.2s ease;
+          
+          &:hover {
+            background-color: var(--highlight);
+            color: var(--secondary);
+          }
+          
+          &.current {
+            background-color: var(--secondary);
+            color: var(--light);
+          }
+        }
+      }
     }
   }
 }
