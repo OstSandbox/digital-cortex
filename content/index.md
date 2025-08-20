@@ -50,5 +50,4 @@ title: Цифровой сад Сергея Останина
 - Email: s.a.ostanin@mail.ru
 - Tel.: +79823033531
 
-![[Тест.base]]
 
