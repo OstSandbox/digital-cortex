@@ -49,3 +49,6 @@ title: Цифровой сад Сергея Останина
 - Telegram: https://t.me/gizmo0007
 - Email: s.a.ostanin@mail.ru
 - Tel.: +79823033531
+
+![[Тест.base]]
+
