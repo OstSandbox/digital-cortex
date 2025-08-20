@@ -1,0 +1,6 @@
+filters:
+  and:
+    - file.inFolder("content")
+views:
+  - type: cards
+    name: Таблица
