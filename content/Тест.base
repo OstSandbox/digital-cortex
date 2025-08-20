@@ -2,5 +2,5 @@ filters:
   and:
     - file.inFolder("content")
 views:
-  - type: cards
+  - type: table
     name: Таблица
