@@ -47,7 +47,7 @@ title: Цифровой сад Сергея Останина
 
 ### **Сферы моих интересов:**
 
-[[Заметки/AI]] 
+[[AI/AI]] 
 ### **Контакты**
 - Telegram: https://t.me/gizmo0007
 - Email: s.a.ostanin@mail.ru
